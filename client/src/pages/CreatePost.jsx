@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { preview } from "../assets";
-import { FormField, Loader } from "../components";
+import FormField, { SelectField } from "../components/FormField";
+import { Loader } from "../components";
 import { getRandomPrompts } from "../utils";
 
 const CreatePost = () => {
@@ -12,7 +13,10 @@ const CreatePost = () => {
     name: "",
     prompt: "",
     photo: "",
+    size: "",
+    model: ""
   });
+  
 
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -39,6 +43,8 @@ const CreatePost = () => {
           },
           body: JSON.stringify({
             prompt: form.prompt,
+            size: form.size,
+            model: form.model
           }),
         });
         const data = await response.json();
@@ -71,6 +77,8 @@ const CreatePost = () => {
         });
 
         await response.json();
+        console.log(form);
+
         navigate("/");
       } catch (error) {
         alert(error);
@@ -113,16 +121,33 @@ const CreatePost = () => {
               isSurpriseMe
               handleSurpriseMe={handleSurpriseMe}
             />
-            <FormField
-              labelName="Prompt"
-              type="text"
-              name="prompt"
-              placeholder="A plush toy robot sitting against a yellow wall"
-              value={form.prompt}
-              handleChange={handleChange}
-              isSurpriseMe
-              handleSurpriseMe={handleSurpriseMe}
-            />
+
+            <div className="flex flex-col md:flex-row gap-6">
+              <SelectField
+                className="flex-1"
+                labelName="Size"
+                name="size"
+                value={form.size}
+                handleChange={handleChange}
+                options={[
+                  { value: "256x256" },
+                  { value: "512x512" },
+                  { value: "1024x1024" },
+                ]}
+              />
+              <SelectField
+                className="flex-1"
+                labelName="Model"
+                name="model"
+                placeholder="Dalle-2"
+                value={form.model}
+                handleChange={handleChange}
+                options={[
+                  { value: "dall-e-2" },
+                  { value: "dall-e-3" }
+                ]}
+              />
+            </div>
 
             <div className="mt-5 flex gap-5">
               <button
