@@ -1,5 +1,3 @@
-import React from "react";
-
 const FormField = ({
   labelName,
   type,
@@ -34,8 +32,7 @@ const FormField = ({
         value={value}
         onChange={handleChange}
         // required
-        className="bg-gray-50 border border-gray-300 p-3 rounded-lg text-gray-900 text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full"
-      />
+        className="bg-gray-50 border border-gray-300 p-3 rounded-lg text-gray-900 text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full"></input>
     </div>
   );
 };
@@ -47,23 +44,25 @@ export const SelectField = ({
   name,
   handleChange,
   value,
-  options=[],
+  options = [],
 }) => {
   return (
     <div className="w-full">
-      <div className="flex items-center gap-2 mb-2">
-        <label
-          htmlFor={name}
-          className="block text-sm font-medium text-gray-900">
-          {labelName}
-        </label>
-      </div>
+      <label
+        htmlFor={name}
+        className="block text-sm font-medium text-gray-900 mb-2">
+        {labelName}
+      </label>
 
-      <select onChange={handleChange}
-        name={name} id={name}
+      <select
+        onChange={handleChange}
+        name={name}
+        id={name}
         className="bg-gray-50 border border-gray-300 p-3 rounded-lg text-gray-900 text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full">
         {options.map((option, index) => (
-          <option value={option.value} key={index}>{option.value}</option>
+          <option value={option.value} key={index}>
+            {option.value}
+          </option>
         ))}
       </select>
     </div>

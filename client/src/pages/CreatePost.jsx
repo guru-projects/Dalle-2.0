@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 import { preview } from "../assets";
 import FormField, { SelectField } from "../components/FormField";
@@ -8,18 +9,30 @@ import { getRandomPrompts } from "../utils";
 
 const CreatePost = () => {
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
   const [form, setForm] = useState({
     name: "",
     prompt: "",
     photo: "",
-    size: "",
-    model: ""
+    size: "512x512",
+    model: "dall-e-2"
   });
   
-
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
+
+    // Initialize name field with currentUser's data
+    useEffect(() => {
+      console.log(form);
+      
+      if (currentUser) {
+        setForm((prevForm) => ({
+          ...prevForm,
+          name: currentUser.displayName || currentUser.email || "",
+        }));
+      }
+    }, [currentUser]);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -147,6 +160,7 @@ const CreatePost = () => {
                   { value: "dall-e-3" }
                 ]}
               />
+              
             </div>
 
             <div className="mt-5 flex gap-5">
