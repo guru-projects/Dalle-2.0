@@ -25,9 +25,11 @@ const Header = () => {
       setUser((pervUser) => ({
         ...pervUser,
         name: currentUser ? currentUser.displayName || currentUser.email : "unknown",
-        img: currentUser ? currentUser.photoURL || preview : preview,
+        img: currentUser ? currentUser.photoURL : preview,
         email: currentUser ? currentUser.email : "unknown@gmail.com"
       }));
+      console.log(user.img);
+      
     
   }, [currentUser]);
 
@@ -58,10 +60,10 @@ const Header = () => {
           <div
             className={`${
               isOpen ? "flex" : "hidden"
-            } absolute top-10 right-0 border-slate-200 bg-slate-100 border-2 p-4 rounded-lg flex-col min-w-[220px] divide-y-2`}>
+            } absolute top-10 right-0 border-slate-200 bg-slate-100 border-2 p-4 rounded-lg flex-col min-w-[250px] divide-y-2`}>
             <div className="flex items-center gap-2 mb-3">
               <img
-                src={user.img}
+                src={user.img || preview}
                 alt="userImg"
                 className="w-10 rounded-full object-cover"
               />
