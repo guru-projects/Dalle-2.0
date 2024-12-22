@@ -12,12 +12,12 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 
-// app.use(
-//   cors({
-//     origin:
-//       "https://dalle-2-0-7pbq-p5txjak40-guru-projects-projects.vercel.app",
-//   })
-// );
+app.use(
+  cors({
+    origin:
+      "https://dalle-2-0-frontend.vercel.app",
+  })
+);
 
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
