@@ -36,7 +36,9 @@ const Home = () => {
           setAllPosts(result.data.reverse());
         }
       } catch (error) {
+        console.log(error);
         alert(error.message);
+        
       } finally {
         setLoading(false);
       }
