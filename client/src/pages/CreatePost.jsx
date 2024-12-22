@@ -76,10 +76,10 @@ const CreatePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (form.prompt && form.photo) {
       setLoading(true);
-
+  
       try {
         const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/post`, {
           method: "POST",
@@ -88,19 +88,24 @@ const CreatePost = () => {
           },
           body: JSON.stringify({ ...form }),
         });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
         await response.json();
-
         navigate("/");
       } catch (error) {
-        alert(error);
+        console.log("Error:", error);
+        alert(`Something went wrong: ${error.message}`);
       } finally {
         setLoading(false);
       }
     } else {
-      alert("Please enter a prompt and Generate a image");
+      alert("Please enter a prompt and Generate an image");
     }
   };
+  
 
   return (
     <section className="max-w-7xl mx-auto mb-24">
