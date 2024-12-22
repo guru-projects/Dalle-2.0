@@ -4,13 +4,20 @@ import * as dotenv from "dotenv";
 
 import connectDB from "./mongodb/connect.js";
 import postRoutes from "./routes/postRoutes.js";
-import dalleRoutes from './routes/dalleRoutes.js';
+import dalleRoutes from "./routes/dalleRoutes.js";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
+
+app.use(
+  cors({
+    origin:
+      "https://dalle-2-0-7pbq-p5txjak40-guru-projects-projects.vercel.app",
+  })
+);
 
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
