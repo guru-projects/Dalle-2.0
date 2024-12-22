@@ -49,7 +49,7 @@ const CreatePost = () => {
         setGeneratingImg(true);
         setLoading(true);
 
-        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/dalle`, {
+        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/dalle`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/post`, {
+        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/post`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

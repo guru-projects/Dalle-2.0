@@ -24,7 +24,7 @@ const Home = () => {
       setLoading(true);
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/post`, {
+        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/post`, {
           method: "GET",
           header: {
             "Content-Type": "application/json",
