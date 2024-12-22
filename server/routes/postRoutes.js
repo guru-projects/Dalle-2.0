@@ -25,10 +25,14 @@ router.route("/").get(async (req, res) => {
   }
 });
 
-// Creating a new Post
 router.route("/").post(async (req, res) => {
   try {
     const { name, photo, prompt } = req.body;
+
+    if (!name || !photo || !prompt) {
+      return res.status(400).json({ success: false, message: "All fields are required." });
+    }
+
     const postUrl = await cloudinary.uploader.upload(photo, {
       folder: "AI Images",
     });
@@ -41,7 +45,9 @@ router.route("/").post(async (req, res) => {
 
     res.status(200).json({ success: true, data: newPost });
   } catch (error) {
-    res.status(500).json({ success: false, message: error });
+    console.error('Error creating post:', error);  // Log the error
+    res.status(500).json({ success: false, message: error.message });
   }
 });
+
 export default router;
