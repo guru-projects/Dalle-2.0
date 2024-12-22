@@ -6,6 +6,7 @@ import { Home, CreatePost } from "./pages";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Header from "./components/Header";
+
 const App = () => {
   return (
     <BrowserRouter>
