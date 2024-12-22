@@ -16,22 +16,28 @@ const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
-    img: "",
+    img: preview,
     name: "",
     email: "",
   });
 
   useEffect(() => {
-      setUser((pervUser) => ({
-        ...pervUser,
-        name: currentUser ? currentUser.displayName || currentUser.email : "unknown",
-        img: currentUser ? currentUser.photoURL : preview,
-        email: currentUser ? currentUser.email : "unknown@gmail.com"
+    if (currentUser) {
+      setUser((prevUser) => ({
+        ...prevUser,
+        name: currentUser.displayName || currentUser.email || "Please Login",
+        img: currentUser.photoURL || preview,
+        email: currentUser.email || "to view details",
       }));
-      console.log(user.img);
-      
-    
+    } else {
+      setUser({
+        name: "Please Login",
+        img: preview,
+        email: "to view details",
+      });
+    }
   }, [currentUser]);
+  
 
   const handleDropDown = () => {
     setIsOpen((perv) => !perv);
@@ -63,7 +69,7 @@ const Header = () => {
             } absolute top-10 right-0 border-slate-200 bg-slate-100 border-2 p-4 rounded-lg flex-col min-w-[250px] divide-y-2`}>
             <div className="flex items-center gap-2 mb-3">
               <img
-                src={user.img || preview}
+                src={currentUser?.photoURL || preview}
                 alt="userImg"
                 className="w-10 rounded-full object-cover"
               />

@@ -16,23 +16,23 @@ const CreatePost = () => {
     prompt: "",
     photo: "",
     size: "512x512",
-    model: "dall-e-2"
+    model: "dall-e-2",
   });
-  
+
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
-    // Initialize name field with currentUser's data
-    useEffect(() => {
-      console.log(form);
-      
-      if (currentUser) {
-        setForm((prevForm) => ({
-          ...prevForm,
-          name: currentUser.displayName || currentUser.email || "",
-        }));
-      }
-    }, [currentUser]);
+  // Initialize name field with currentUser's data
+  useEffect(() => {
+    console.log(form);
+
+    if (currentUser) {
+      setForm((prevForm) => ({
+        ...prevForm,
+        name: currentUser.displayName || currentUser.email || "",
+      }));
+    }
+  }, [currentUser]);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -57,7 +57,7 @@ const CreatePost = () => {
           body: JSON.stringify({
             prompt: form.prompt,
             size: form.size,
-            model: form.model
+            model: form.model,
           }),
         });
         const data = await response.json();
@@ -90,7 +90,6 @@ const CreatePost = () => {
         });
 
         await response.json();
-        console.log(form);
 
         navigate("/");
       } catch (error) {
@@ -155,12 +154,8 @@ const CreatePost = () => {
                 placeholder="Dalle-2"
                 value={form.model}
                 handleChange={handleChange}
-                options={[
-                  { value: "dall-e-2" },
-                  { value: "dall-e-3" }
-                ]}
+                options={[{ value: "dall-e-2" }, { value: "dall-e-3" }]}
               />
-              
             </div>
 
             <div className="mt-5 flex gap-5">
