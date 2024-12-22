@@ -88,10 +88,6 @@ const CreatePost = () => {
           },
           body: JSON.stringify({ ...form }),
         });
-  
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
 
         await response.json();
         navigate("/");
