@@ -21,6 +21,9 @@
         grid-row: auto/span 2;
     }
 }
+.card:hover img{
+    transform: scale(103%);
+}
 
 .prompt::-webkit-scrollbar {
     width: 5px;
