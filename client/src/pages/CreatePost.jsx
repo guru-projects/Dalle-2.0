@@ -15,7 +15,7 @@ const CreatePost = () => {
     name: "",
     prompt: "",
     photo: "",
-    size: "512x512",
+    size: "256x256",
     model: "dall-e-2",
   });
 
