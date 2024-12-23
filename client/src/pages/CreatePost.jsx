@@ -51,14 +51,14 @@ const CreatePost = () => {
 
         const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/dalle`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: JSON.stringify({
             prompt: form.prompt,
             size: form.size,
             model: form.model,
           }),
+          headers: {
+            "Content-type": "application/json",
+          },
         });
         const data = await response.json();
 
