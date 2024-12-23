@@ -50,7 +50,7 @@ const CreatePost = () => {
         console.log(form);
         
 
-        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/dalle`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/v1/dalle`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const CreatePost = () => {
       setLoading(true);
   
       try {
-        const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/post`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/v1/post`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
