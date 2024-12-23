@@ -20,7 +20,7 @@ const Card = ({ _id, name, prompt, photo }) => {
       />
 
       <div className="group-hover:flex flex-col gap-4 max-h-full absolute hidden bottom-0 left-0 right-0 bg-blue-50 dark:bg-secondary-dark m-2 p-4 rounded-md text-md border-primary-border border">
-        <p className="primary-para line-clamp-3 text-primary-text">{prompt}</p>
+        <p className="primary-para line-clamp-3 text-primary-text dark:text-primary-light">{prompt}</p>
 
         <div className="flex justify-between">
           <div className="flex gap-2 items-center">

@@ -106,8 +106,8 @@ const CreatePost = () => {
   return (
     <section className="max-w-7xl mx-auto mb-24 mt-20">
       <div>
-        <h1 className="font-extrabold text-[32px] text-[#222328]">Create</h1>
-        <p className="mt-2 max-w-[450px] text-[#666e75] text-[16px]">
+        <h1 className="primary-heading">Create</h1>
+        <p className="primary-para">
           Create imaginative and visually stunning images through DALLE- AI and
           share them with the Community
         </p>
@@ -163,26 +163,26 @@ const CreatePost = () => {
               <button
                 type="button"
                 onClick={generateImage}
-                className="w-full bg-green-700 text-white rounded-lg px-5 py-2.5 sm:w-auto text-sm font-medium text-center">
+                className="btn-primary">
                 {generatingImg ? "Generating..." : "Generate"}
               </button>
             </div>
 
             <div>
-              <p className="mt-5 text-sm font-normal text-[#666e75]">
+              <p className="primary-para font-light text-sm">
                 <sup>*</sup>Once you have creates the image you want, you can
                 share it with others with the Community{" "}
               </p>
               <button
                 type="submit"
-                className="mt-3 w-full bg-[#6469ff] text-white rounded-lg px-5 py-2.5 sm:w-auto text-sm font-medium text-center">
+                className="btn-primary border border-primary-border bg-primary-light dark:bg-primary-dark text-blue-400">
                 {loading ? "Loading..." : "Share with Community"}
               </button>
             </div>
           </div>
 
           <div className="flex-1 flex justify-center items-center">
-            <div className="relative bg-gray-50 border border-gray-300 rounded-lg max-w-[400px] max-h-[400px] flex justify-center">
+            <div className="relative bg-gray-50 border border-light-border dark:border-dark-border rounded-lg max-w-[400px] max-h-[400px] flex justify-center">
               {form.photo ? (
                 <img
                   src={form.photo}
@@ -193,7 +193,7 @@ const CreatePost = () => {
                 <img
                   src={preview}
                   alt="preview"
-                  className="w-[400px] object-contain opacity-40"
+                  className="w-[400px] object-contain opacity-40 dark:invert"
                 />
               )}
               {generatingImg && (

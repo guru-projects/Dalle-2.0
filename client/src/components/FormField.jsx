@@ -32,7 +32,7 @@ const FormField = ({
         value={value}
         onChange={handleChange}
         // required
-        className="border-light-border dark:border-dark-border dark:bg-secondary-dark border p-3 rounded-lg text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full"></input>
+        className="text-primary-dark dark:text-primary-light border-light-border dark:border-dark-border dark:bg-secondary-dark border p-3 rounded-lg text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full"></input>
     </div>
   );
 };
@@ -50,7 +50,7 @@ export const SelectField = ({
     <div className="w-full">
       <label
         htmlFor={name}
-        className="block text-sm font-medium text-gray-900 mb-2">
+        className="block text-sm font-medium mb-2 text-primary-dark dark:text-primary-light">
         {labelName}
       </label>
 
@@ -58,7 +58,7 @@ export const SelectField = ({
         onChange={handleChange}
         name={name}
         id={name}
-        className="bg-gray-50 border border-gray-300 p-3 rounded-lg text-gray-900 text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full">
+        className="text-secondary-dark dark:text-secondary-light dark:bg-secondary-dark border border-light-border dark:border-dark-border p-3 rounded-lg text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full">
         {options.map((option, index) => (
           <option value={option.value} key={index}>
             {option.value}
