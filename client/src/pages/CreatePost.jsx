@@ -44,7 +44,7 @@ const CreatePost = () => {
   };
 
   const generateImage = async () => {
-    if (form.prompt) {
+    if (form.prompt && form.model && form.size) {
       try {
         setGeneratingImg(true);
         setLoading(true);
@@ -64,7 +64,7 @@ const CreatePost = () => {
 
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (error) {
-        console.error(error);
+        console.error("Error on sending form data to dalle route",error);
       } finally {
         setGeneratingImg(false);
         setLoading(false);
