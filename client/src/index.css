@@ -1,34 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    font-family: 'Inter', sans-serif;
+  font-family: "Poppins", serif;
+}
+
+@layer components {
+  .primary-heading {
+    @apply  text-5xl font-semibold leading-normal mb-6 text-primary-text dark:text-primary-light;
+  }
+  .primary-para {
+    @apply text-base font-normal leading-normal mb-6 text-secondary-text dark:text-secondary-light max-w-[550px];
+  }
+  .btn-primary {
+    @apply bg-blue-700 text-primary-light text-sm font-medium py-3 px-6 rounded-md;
+  }
+
 }
 
 @media screen and (min-width: 480px) {
-    .card:nth-child(7n + 1) {
-        grid-column: auto/span 2;
-        grid-row: auto/span 2;
-    }
+  .card:nth-child(7n + 1) {
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+  }
 }
 @media screen and (min-width: 780px) {
-    .card{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .card:nth-child(7n + 1) {
-        grid-column: auto/span 2;
-        grid-row: auto/span 2;
-    }
+  .card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card:nth-child(7n + 1) {
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+  }
 }
-.card:hover img{
-    transform: scale(103%);
+.card:hover img {
+  transform: scale(103%);
 }
 
 .prompt::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
- 
+
 .prompt::-webkit-scrollbar-thumb {
   background-color: #666e75;
   border-radius: 5px;

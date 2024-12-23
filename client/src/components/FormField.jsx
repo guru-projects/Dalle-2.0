@@ -13,7 +13,7 @@ const FormField = ({
       <div className="flex items-center gap-2 mb-2">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-900">
+          className="block text-sm font-medium text-primary-dark dark:text-primary-light">
           {labelName}
         </label>
         {isSurpriseMe && (
@@ -32,7 +32,7 @@ const FormField = ({
         value={value}
         onChange={handleChange}
         // required
-        className="bg-gray-50 border border-gray-300 p-3 rounded-lg text-gray-900 text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full"></input>
+        className="border-light-border dark:border-dark-border dark:bg-secondary-dark border p-3 rounded-lg text-sm focus:ring-[#4649ff] focus:border-[#4649ff] outline-none block w-full"></input>
     </div>
   );
 };

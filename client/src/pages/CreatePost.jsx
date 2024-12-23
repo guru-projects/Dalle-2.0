@@ -104,7 +104,7 @@ const CreatePost = () => {
   
 
   return (
-    <section className="max-w-7xl mx-auto mb-24">
+    <section className="max-w-7xl mx-auto mb-24 mt-20">
       <div>
         <h1 className="font-extrabold text-[32px] text-[#222328]">Create</h1>
         <p className="mt-2 max-w-[450px] text-[#666e75] text-[16px]">
