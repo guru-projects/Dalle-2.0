@@ -24,7 +24,6 @@ const CreatePost = () => {
 
   // Initialize name field with currentUser's data
   useEffect(() => {
-    console.log(form);
 
     if (currentUser) {
       setForm((prevForm) => ({

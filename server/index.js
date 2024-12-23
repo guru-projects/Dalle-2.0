@@ -15,7 +15,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(
   cors({
     origin:
-      "https://dalle-2-0-frontend.vercel.app",
+      "*",
   })
 );
 
@@ -31,7 +31,7 @@ const startServer = async () => {
       console.log("Server is running on  http://localhost:8080")
     );
   } catch (error) {
-    console.log(error);
+    console.log("mongodb connection error",error);
   }
 };
 
