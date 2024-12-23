@@ -12,7 +12,21 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 
-app.use(cors({origin:"https://dalle-2-0-frontend.vercel.app"}));
+// app.use(cors({origin:"https://dalle-2-0-frontend.vercel.app"}));
+// Configure CORS
+
+app.use(
+  cors({
+    origin: "https://dalle-2-0-frontend.vercel.app",
+    // Replace with your actual frontend URL
+
+    methods: ["GET", "POST"],
+    // Allowed HTTP methods
+
+    allowedHeaders: ["Content-Type"],
+    // Allowed headers
+  })
+);
 
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
@@ -26,7 +40,7 @@ const startServer = async () => {
       console.log("Server is running on  http://localhost:8080")
     );
   } catch (error) {
-    console.log("mongodb connection error",error);
+    console.log("mongodb connection error", error);
   }
 };
 

@@ -54,11 +54,11 @@ const CreatePost = () => {
           method: "POST",
           body: JSON.stringify({
             prompt: form.prompt,
-            size: form.size,
-            model: form.model,
+            // size: form.size,
+            // model: form.model,
           }),
           headers: {
-            "Content-type": "application/json",
+            "Content-Type": "application/json",
           },
         });
         const data = await response.json();
