@@ -48,6 +48,8 @@ const CreatePost = () => {
       try {
         setGeneratingImg(true);
         setLoading(true);
+        console.log(form);
+        
 
         const response = await fetch(`${import.meta.env.VITE_FIREBASE_BACKEND_API}/api/v1/dalle`, {
           method: "POST",
