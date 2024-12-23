@@ -15,7 +15,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(
   cors({
     origin:
-      "https://dalle-2-0-frontend.vercel.app",
+      "*",
   })
 );
 
