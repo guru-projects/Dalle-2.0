@@ -8,12 +8,7 @@ app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 dotenv.config();
 
-app.use(
-  cors({
-    origin:
-      "https://dalle-2-0-frontend.vercel.app",
-  })
-);
+app.use(cors({origin:"https://dalle-2-0-frontend.vercel.app"}));
 
 const router = express.Router();
 
