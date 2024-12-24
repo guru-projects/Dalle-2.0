@@ -22,14 +22,14 @@ router.route("/").get((req, res) => {
 
 router.route("/").post(async (req, res) => {
   try {
-    const { prompt, size, model } = req.body;
-    console.log("from backend",size, model);
+    const { prompt, model } = req.body;
+    // console.log("from backend",size, model);
     
     const aiResponse = await openai.images.generate({
       model: model,
       prompt: prompt,
       n: 1,
-      size: size,
+      size: '1024x1024',
       response_format: "b64_json",
     });
 
